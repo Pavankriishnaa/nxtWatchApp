@@ -1,7 +1,3 @@
-cat >
-  (/home/acekoprsw / reactjs / coding -
-    practices / nxtWatchApp / src / components / Home / index.js) <<
-    'EOF'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {CiSearch} from 'react-icons/ci'
@@ -9,9 +5,11 @@ import {IoIosClose} from 'react-icons/io'
 import {formatDistanceToNow} from 'date-fns'
 import Loader from 'react-loader-spinner'
 import {Link} from 'react-router-dom'
+
 import DataContext from '../../context/DataContext'
 import Header from '../Header'
 import NavBar from '../NavBar'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -43,15 +41,19 @@ class Home extends Component {
 
   getVideos = async () => {
     this.setState({apiStatus: apiStatusConstants.loading})
+
     const jwtToken = Cookies.get('jwt_token')
     const {searchInput} = this.state
+
     const homeVideosApiUrl = `https://apis.ccbp.in/videos/all?search=${searchInput}`
+
     const options = {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${jwtToken}`,
       },
     }
+
     try {
       const response = await fetch(homeVideosApiUrl, options)
       if (response.ok) {
@@ -67,6 +69,7 @@ class Home extends Component {
             profileImageUrl: each.channel.profile_image_url,
           },
         }))
+
         this.setState({
           videos: formattedData,
           apiStatus: apiStatusConstants.success,
@@ -89,6 +92,7 @@ class Home extends Component {
     const imgUrl = dark
       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+
     return (
       <div className="failure-container">
         <img src={imgUrl} alt="failure view" className="failure-img" />
@@ -124,6 +128,7 @@ class Home extends Component {
         </div>
       )
     }
+
     return (
       <ul className="video-items-container">
         {videos.map(video => {
@@ -131,13 +136,14 @@ class Home extends Component {
             addSuffix: true,
           })
           const textColor = dark ? '#ffffff' : '#1e293b'
+
           return (
             <li className="link-main-containers" key={video.id}>
               <Link to={`/videos/${video.id}`} className="link-containers">
                 <img
                   src={video.thumbnailUrl}
                   alt="video thumbnail"
-                  className="thumbnail"
+                  className="thumbnail-imgs"
                 />
                 <div className="video-meta">
                   <img
@@ -165,11 +171,13 @@ class Home extends Component {
 
   render() {
     const {bannerHide, searchInput, videos, apiStatus} = this.state
+
     return (
       <DataContext.Consumer>
         {value => {
           const {dark} = value
           const bgColor = dark ? '#181818' : '#f9f9f9'
+
           return (
             <div
               className="main-home-conatiner"
@@ -180,6 +188,7 @@ class Home extends Component {
               <div className="navbar-content-container">
                 <NavBar />
                 <div className="content-container">
+                  {/* BANNER */}
                   {!bannerHide && (
                     <div
                       className="bannerX"
@@ -210,6 +219,8 @@ class Home extends Component {
                       </button>
                     </div>
                   )}
+
+                  {/* SEARCH + VIDEOS */}
                   <div className="home-content">
                     <div className="search-container">
                       <input
@@ -238,6 +249,7 @@ class Home extends Component {
                         <CiSearch size={20} />
                       </button>
                     </div>
+
                     {apiStatus === apiStatusConstants.loading &&
                       this.renderLoader()}
                     {apiStatus === apiStatusConstants.failure &&
