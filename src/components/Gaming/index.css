@@ -1,0 +1,37 @@
+.gaming-video-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gaming-video-item {
+  width: 200px;
+}
+
+.gaming-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.gaming-thumbnail {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.gaming-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 0 4px 0;
+}
+
+.gaming-views {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+}
+
+.to-make-dark .gaming-views {
+  color: #94a3b8;
+}

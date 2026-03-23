@@ -1,0 +1,35 @@
+.not-found-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+/* IMAGE */
+.not-found-image {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+/* TITLE */
+.not-found-title {
+  font-size: 24px;
+  color: #1e293b;
+}
+
+/* DESC */
+.not-found-desc {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* DARK MODE */
+.to-make-dark .not-found-title {
+  color: white;
+}
+
+.to-make-dark .not-found-desc {
+  color: #cbd5f5;
+}

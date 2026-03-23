@@ -1,0 +1,99 @@
+.main-home-conatiner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar-content-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.content-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px;
+  height: calc(100vh - 70px);
+}
+
+.to-make-dark {
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.video-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.video-item {
+  width: 100%;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.thumbnail {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.video-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.video-info {
+  font-size: 14px;
+  color: #64748b;
+  margin: 3px 0;
+}
+
+.to-make-dark .video-info {
+  color: #94a3b8;
+}
+
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.failure-container button {
+  padding: 8px 20px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
